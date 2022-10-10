@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrubs", "Scrubs\Scrubs.csproj", "{3A0FFB15-B09A-4935-9A99-108B429340E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E5ED871B-7733-465A-BA1E-65D7B521B47E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrubs.Domain", "Scrubs.Domain\Scrubs.Domain.csproj", "{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A0FFB15-B09A-4935-9A99-108B429340E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0FFB15-B09A-4935-9A99-108B429340E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0FFB15-B09A-4935-9A99-108B429340E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0FFB15-B09A-4935-9A99-108B429340E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C85AA3DF-FD4F-4763-9905-1DFBB739EA3B} = {E5ED871B-7733-465A-BA1E-65D7B521B47E}
+	EndGlobalSection
+EndGlobal
