@@ -15,6 +15,62 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/vanish/RiderProjects/Scrubs/Scrubs
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/CreateAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvQ3JlYXRlQXBwb2ludG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/GetAppointmentsDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvR2V0QXBwb2ludG1lbnRzRG9jdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/GetByDateOfFinishAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvR2V0QnlEYXRlT2ZGaW5pc2hBcHBvaW50bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/GetByDateOfStartAppointment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvR2V0QnlEYXRlT2ZTdGFydEFwcG9pbnRtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/GetByIdDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvR2V0QnlJZERvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/GetByIdPatient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvR2V0QnlJZFBhdGllbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/AppointmentDoctor/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwb2ludG1lbnREb2N0b3IvU2F2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/CreateDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL0NyZWF0ZURvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/GetByFullName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL0dldEJ5RnVsbE5hbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/GetByJobTitle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL0dldEJ5Sm9iVGl0bGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/GetDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL0dldERvY3Rvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/GetDoctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL0dldERvY3RvcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Doctor/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9jdG9yL1NhdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Error/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -29,6 +85,86 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Specialization/CreateSpecialization.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlY2lhbGl6YXRpb24vQ3JlYXRlU3BlY2lhbGl6YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Specialization/GetByName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlY2lhbGl6YXRpb24vR2V0QnlOYW1lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Specialization/GetSpecialization.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlY2lhbGl6YXRpb24vR2V0U3BlY2lhbGl6YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Specialization/GetSpecializations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlY2lhbGl6YXRpb24vR2V0U3BlY2lhbGl6YXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/Specialization/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3BlY2lhbGl6YXRpb24vU2F2ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/CreateTimeTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL0NyZWF0ZVRpbWVUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/GetByFinishOfWorkDayDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL0dldEJ5RmluaXNoT2ZXb3JrRGF5RG9jdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/GetByStartOfWorkDayDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL0dldEJ5U3RhcnRPZldvcmtEYXlEb2N0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/GetTimeTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL0dldFRpbWVUYWJsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/GetTimeTables.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL0dldFRpbWVUYWJsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/TimeTable/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGltZVRhYmxlL1NhdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9DcmVhdGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetByLoginAndPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRCeUxvZ2luQW5kUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetByName.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRCeU5hbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetByPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRCeVBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetByPhoneNumber.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRCeVBob25lTnVtYmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetByRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRCeVJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/GetUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/User/Save.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9TYXZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/vanish/RiderProjects/Scrubs/Scrubs/Views/_ViewImports.cshtml]

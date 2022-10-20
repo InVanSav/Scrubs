@@ -1,0 +1,12 @@
+@model IEnumerable<Scrubs.Domain.Entity.Doctor>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@foreach (var doctor in Model){
+    <p>@doctor.Id</p>
+    <p>@doctor.FullName</p>
+    <p>@doctor.JobTitle</p>
+}

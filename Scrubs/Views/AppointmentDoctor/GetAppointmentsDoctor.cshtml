@@ -1,0 +1,13 @@
+@model IEnumerable<Scrubs.Domain.Entity.AppointmentDoctor>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@foreach (var appointmentDoctor in Model){
+    <p>@appointmentDoctor.IdPatient</p>
+    <p>@appointmentDoctor.IdDoctor</p>
+    <p>@appointmentDoctor.DateOfFinishAppointmentWithDoctor</p>
+    <p>@appointmentDoctor.DateOfStartAppointmentWithDoctor</p>
+}

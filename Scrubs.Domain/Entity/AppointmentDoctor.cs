@@ -1,5 +1,8 @@
 namespace Scrubs.Domain.Entity;
 
+using Microsoft.EntityFrameworkCore;
+
+[Keyless]
 public class AppointmentDoctor {
 
     public DateTime DateOfStartAppointmentWithDoctor { get; set; }

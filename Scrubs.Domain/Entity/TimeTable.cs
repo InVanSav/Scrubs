@@ -1,5 +1,8 @@
-namespace Scrubs.Domain.Entity; 
+namespace Scrubs.Domain.Entity;
 
+using Microsoft.EntityFrameworkCore;
+
+[Keyless]
 public class TimeTable {
     
     public int IdOfDoctor { get; set; }

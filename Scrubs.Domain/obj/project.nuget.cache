@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sEZzhk2n8I7hn+AKr498wn1VwffOLM4n9LNFRK5x3oQyQ7Icl6bDcqQv6jcc7u+tQSY0ke1rYVxyls9ajGwzuQ==",
+  "dgSpecHash": "l2rJe+dhsDUtPJ18efUeaSBWoCG04e/mMr9boPkgDVUPnG7KcxaNpfQXhokSU79SZcN6R6OP4oRlUNukEV+low==",
   "success": true,
   "projectFilePath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/vanish/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512"
+  ],
   "logs": []
 }

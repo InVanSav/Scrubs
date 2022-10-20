@@ -6,4 +6,13 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Scrubs.DAL\Scrubs.DAL.csproj" />
+      <ProjectReference Include="..\Scrubs.Service\Scrubs.Service.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    </ItemGroup>
+
 </Project>

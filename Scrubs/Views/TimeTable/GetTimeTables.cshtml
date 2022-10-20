@@ -1,0 +1,12 @@
+@model IEnumerable<Scrubs.Domain.Entity.TimeTable>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+@foreach (var timeTable in Model){
+    <p>@timeTable.IdOfDoctor</p>
+    <p>@timeTable.FinishOfWorkDayDoctor</p>
+    <p>@timeTable.StartOfWorkDayDoctor</p>
+}

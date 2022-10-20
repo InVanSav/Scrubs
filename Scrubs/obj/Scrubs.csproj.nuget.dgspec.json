@@ -4,14 +4,77 @@
     "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj": {}
   },
   "projects": {
-    "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj": {
+    "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj",
-        "projectName": "Scrubs",
-        "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj",
+        "projectUniqueName": "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj",
+        "projectName": "Scrubs.DAL",
+        "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj",
         "packagesPath": "/Users/vanish/.nuget/packages/",
-        "outputPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs/obj/",
+        "outputPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vanish/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj": {
+                "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj",
+        "projectName": "Scrubs.Domain",
+        "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj",
+        "packagesPath": "/Users/vanish/.nuget/packages/",
+        "outputPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/vanish/.nuget/NuGet/NuGet.Config"
@@ -37,6 +100,138 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/Scrubs.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/Scrubs.Service.csproj",
+        "projectName": "Scrubs.Service",
+        "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/Scrubs.Service.csproj",
+        "packagesPath": "/Users/vanish/.nuget/packages/",
+        "outputPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vanish/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj": {
+                "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj"
+              },
+              "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj": {
+                "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Domain/Scrubs.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj",
+        "projectName": "Scrubs",
+        "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs/Scrubs.csproj",
+        "packagesPath": "/Users/vanish/.nuget/packages/",
+        "outputPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vanish/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj": {
+                "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.DAL/Scrubs.DAL.csproj"
+              },
+              "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/Scrubs.Service.csproj": {
+                "projectPath": "/Users/vanish/RiderProjects/Scrubs/Scrubs.Service/Scrubs.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
