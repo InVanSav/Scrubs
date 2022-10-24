@@ -2,25 +2,11 @@ namespace Scrubs.Domain.Enum;
 
 public enum StatusCode {
     
-    // User
-    UserNotFound = 0,
-    UserWasNotCreate = 1,
+    // Data Not Found
+    DataNotFound = 0,
     
-    // Doctor
-    DoctorNotFound = 2,
-    DoctorWasNotCreate = 3,
-    
-    // Specialization
-    SpecializationNotFound = 4,
-    SpecializationWasNotAdded = 5,
-    
-    // TimeTable
-    TimeTableNotFound = 6,
-    TimeTableWasNotAdded = 7,
-    
-    // Appointment
-    AppointmentNotFound = 8,
-    AppointmentWasNotAdded = 9,
+    // Data Was Not Added
+    DataWasNotAdded = 1,
     
     // Base
     OK = 200,

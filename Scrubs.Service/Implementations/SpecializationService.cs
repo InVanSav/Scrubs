@@ -25,7 +25,7 @@ public class SpecializationService : ISpecializationService {
 
             if (specializations.Count == 0){
                 baseResponse.Result = "Specializations not found:(";
-                baseResponse.StatusCode = StatusCode.SpecializationNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -55,7 +55,7 @@ public class SpecializationService : ISpecializationService {
 
             if (specialization == null){
                 baseResponse.Result = "Specialization not found:(";
-                baseResponse.StatusCode = StatusCode.SpecializationNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -85,7 +85,7 @@ public class SpecializationService : ISpecializationService {
 
             if (specialization == null){
                 baseResponse.Result = "Specialization not found:(";
-                baseResponse.StatusCode = StatusCode.SpecializationNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -115,7 +115,7 @@ public class SpecializationService : ISpecializationService {
 
             if (specialization == null){
                 baseResponse.Result = "Specialization not found:(";
-                baseResponse.StatusCode = StatusCode.SpecializationNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -149,7 +149,7 @@ public class SpecializationService : ISpecializationService {
 
             if (specialization == null){
                 baseResponse.Result = "Specialization wasn't create:(";
-                baseResponse.StatusCode = StatusCode.SpecializationWasNotAdded;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
             
@@ -180,7 +180,7 @@ public class SpecializationService : ISpecializationService {
             var specialization = _specializationRepository.Get(id);
 
             if (specialization == null){
-                baseResponse.StatusCode = StatusCode.SpecializationNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "Specialization not found:(";
                 return baseResponse;
             }

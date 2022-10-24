@@ -25,7 +25,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -55,7 +55,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -85,7 +85,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -115,7 +115,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -145,7 +145,7 @@ public class UserService : IUserService {
 
             if (!user){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
             
@@ -174,7 +174,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -204,7 +204,7 @@ public class UserService : IUserService {
 
             if (users.Count == 0) {
                 baseResponse.Result = "Users not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -234,7 +234,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User not found:(";
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -269,7 +269,7 @@ public class UserService : IUserService {
 
             if (user == null){
                 baseResponse.Result = "User wasn't create:(";
-                baseResponse.StatusCode = StatusCode.UserWasNotCreate;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
             
@@ -297,7 +297,7 @@ public class UserService : IUserService {
             var user = _userRepository.Get(id);
 
             if (user == null){
-                baseResponse.StatusCode = StatusCode.UserNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "User not found:(";
                 return baseResponse;
             }

@@ -25,7 +25,7 @@ public class DoctorService : IDoctorService {
 
             if (doctors.Count == 0){
                 baseResponse.Result = "Doctors not found:(";
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -55,7 +55,7 @@ public class DoctorService : IDoctorService {
 
             if (doctor == null){
                 baseResponse.Result = "Doctor not found:(";
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -85,7 +85,7 @@ public class DoctorService : IDoctorService {
 
             if (doctor == null){
                 baseResponse.Result = "Doctor not found:(";
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -115,7 +115,7 @@ public class DoctorService : IDoctorService {
 
             if (doctor == null){
                 baseResponse.Result = "Doctor not found:(";
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -145,7 +145,7 @@ public class DoctorService : IDoctorService {
 
             if (doctor == null){
                 baseResponse.Result = "Doctor not found:(";
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -178,7 +178,7 @@ public class DoctorService : IDoctorService {
 
             if (doctor == null){
                 baseResponse.Result = "Doctor wasn't create:(";
-                baseResponse.StatusCode = StatusCode.DoctorWasNotCreate;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
             
@@ -207,7 +207,7 @@ public class DoctorService : IDoctorService {
             var doctor = _doctorRepository.Get(id);
 
             if (doctor == null){
-                baseResponse.StatusCode = StatusCode.DoctorNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "Doctor not found:(";
                 return baseResponse;
             }

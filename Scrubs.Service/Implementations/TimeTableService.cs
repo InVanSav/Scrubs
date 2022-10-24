@@ -25,7 +25,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTable == null){
                 baseResponse.Result = "TimeTable not found:(";
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -55,7 +55,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTables.Count == 0) {
                 baseResponse.Result = "TimeTables not found:(";
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -85,7 +85,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTable == null){
                 baseResponse.Result = "TimeTable not found:(";
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -115,7 +115,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTable == null){
                 baseResponse.Result = "TimeTable not found:(";
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -145,7 +145,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTable == null){
                 baseResponse.Result = "TimeTable not found:(";
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -179,7 +179,7 @@ public class TimeTableService : ITimeTableService{
 
             if (timeTable == null){
                 baseResponse.Result = "TimeTable wasn't create:(";
-                baseResponse.StatusCode = StatusCode.TimeTableWasNotAdded;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
             
@@ -208,7 +208,7 @@ public class TimeTableService : ITimeTableService{
             var timeTable = _timeTableRepository.Get(id);
 
             if (timeTable == null){
-                baseResponse.StatusCode = StatusCode.TimeTableNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "TimeTable not found:(";
                 return baseResponse;
             }

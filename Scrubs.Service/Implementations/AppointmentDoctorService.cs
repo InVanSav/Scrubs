@@ -26,7 +26,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -56,7 +56,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -87,7 +87,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -118,7 +118,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -149,7 +149,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -179,7 +179,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment.Count == 0) {
                 baseResponse.Result = "Appointments not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -209,7 +209,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null){
                 baseResponse.Result = "Appointment not found:(";
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
             }
 
@@ -252,11 +252,11 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
             if (appointment == null) {
                 baseResponse.Result = "Appointment wasn't create:(";
-                baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             } if (appointment.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
                 baseResponse.Result = "Appointment wasn't create:(";
-                baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
 
@@ -287,7 +287,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
             var appointment = _appointmentDoctorRepository.Get(id);
 
             if (appointment == null){
-                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "Appointment not found:(";
                 return baseResponse;
             }
@@ -304,7 +304,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
             
             if (appointment.Result.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
                 baseResponse.Result = "Appointment wasn't create:(";
-                baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
+                baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
 
