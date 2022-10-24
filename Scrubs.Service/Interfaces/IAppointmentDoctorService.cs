@@ -14,6 +14,8 @@ public interface IAppointmentDoctorService {
 
     Task<IBaseResponse<AppointmentDoctor>> GetByDateOfFinishAppointment(DateTime finish);
 
+    Task<IBaseResponse<AppointmentDoctor>> GetFreeAppointment(int id);
+
     Task<IBaseResponse<IEnumerable<AppointmentDoctor>>> GetAppointments();
 
     Task<IBaseResponse<bool>> DeleteAppointment(int id);

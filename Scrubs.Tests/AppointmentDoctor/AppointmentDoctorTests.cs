@@ -101,10 +101,22 @@ public class AppointmentDoctorTests {
             IdDoctor = 0,
             IdPatient = 0,
             DateOfStartAppointmentWithDoctor = DateTime.Now,
-            DateOfFinishAppointmentWithDoctor = DateTime.Today
+            DateOfFinishAppointmentWithDoctor = DateTime.Today,
+            FreeTimeOfDoctor = DateTime.Now
         };
 
         var res = _appointmentDoctorService.Edit(0, appointment);
+
+        Assert.True(res.IsFaulted);
+        Assert.Equal("Appointment not found:(", res.Result.Result);
+        Assert.Equal(8, (int)res.Result.StatusCode);
+
+    }
+    
+    [Fact] 
+    public void GetFreeAppointmentOrNo_ShouldFail() {
+
+        var res = _appointmentDoctorService.GetFreeAppointment(0);
 
         Assert.True(res.IsFaulted);
         Assert.Equal("Appointment not found:(", res.Result.Result);

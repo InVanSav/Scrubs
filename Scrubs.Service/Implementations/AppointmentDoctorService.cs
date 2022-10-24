@@ -138,6 +138,37 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
         
     }
 
+    public async Task<IBaseResponse<AppointmentDoctor>> GetFreeAppointment(int id) {
+
+        var baseResponse = new BaseResponse<AppointmentDoctor>();
+
+        try{
+
+            var appointment = await _appointmentDoctorRepository.
+                Get(id);
+
+            if (appointment == null){
+                baseResponse.Result = "Appointment not found:(";
+                baseResponse.StatusCode = StatusCode.AppointmentNotFound;
+                return baseResponse;
+            }
+
+            baseResponse.Data = appointment;
+            baseResponse.StatusCode = StatusCode.OK;
+            
+            return baseResponse;
+
+        } catch (Exception ex){
+            
+            return new BaseResponse<AppointmentDoctor>() {
+                Result = $"[GetFreeAppointment] : {ex.Message}",
+                StatusCode = StatusCode.InternalServerError,
+            };
+            
+        }
+        
+    }
+
     public async Task<IBaseResponse<IEnumerable<AppointmentDoctor>>> GetAppointments() {
         
         var baseResponse = new BaseResponse<IEnumerable<AppointmentDoctor>>();
@@ -177,7 +208,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
             var appointment = await _appointmentDoctorRepository.Get(id);
 
             if (appointment == null){
-                baseResponse.Result = "appointment not found:(";
+                baseResponse.Result = "Appointment not found:(";
                 baseResponse.StatusCode = StatusCode.AppointmentNotFound;
                 return baseResponse;
             }
@@ -213,14 +244,22 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
                     appointmentDoctorViewModel.DateOfFinishAppointmentWithDoctor,
                 DateOfStartAppointmentWithDoctor = 
                     appointmentDoctorViewModel.DateOfStartAppointmentWithDoctor,
+                FreeTimeOfDoctor = appointmentDoctorViewModel.FreeTimeOfDoctor,
             };
+            
+            var find = _appointmentDoctorRepository.
+                GetByDateOfStartAppointmentWithDoctor(appointment.FreeTimeOfDoctor);
 
-            if (appointment == null){
+            if (appointment == null) {
+                baseResponse.Result = "Appointment wasn't create:(";
+                baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
+                return baseResponse;
+            } if (appointment.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
                 baseResponse.Result = "Appointment wasn't create:(";
                 baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
                 return baseResponse;
             }
-            
+
             await _appointmentDoctorRepository.Create(appointment);
             baseResponse.StatusCode = StatusCode.OK;
 
@@ -259,6 +298,15 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
                 appointmentDoctor.DateOfFinishAppointmentWithDoctor;
             appointment.Result.DateOfStartAppointmentWithDoctor =
                 appointmentDoctor.DateOfStartAppointmentWithDoctor;
+            
+            var find = _appointmentDoctorRepository.
+                GetByDateOfStartAppointmentWithDoctor(appointment.Result.FreeTimeOfDoctor);
+            
+            if (appointment.Result.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
+                baseResponse.Result = "Appointment wasn't create:(";
+                baseResponse.StatusCode = StatusCode.AppointmentWasNotAdded;
+                return baseResponse;
+            }
 
             await _appointmentDoctorRepository.Update(await appointment);
 
