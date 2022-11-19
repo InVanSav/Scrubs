@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Scrubs.Controllers;
 
-using Domain.Entity;
 using Domain.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Service.Interfaces;

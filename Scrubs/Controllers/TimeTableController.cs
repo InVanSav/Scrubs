@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Scrubs.Controllers;
 
 using Domain.ViewModels.TimeTable;
-using Domain.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
 using Service.Interfaces;
 

@@ -1,5 +1,6 @@
 namespace Scrubs.Tests.Specialization;
 
+using DAL.Interfaces;
 using Domain.ViewModels.Specialization;
 using Service.Implementations;
 
@@ -7,8 +8,9 @@ public class SpecializationTests {
 
     private readonly SpecializationService _specializationService;
 
-    public SpecializationTests(SpecializationService specializationService) {
-        _specializationService = specializationService;
+    public SpecializationTests() {
+        var specializationRepositoryMock = new Mock<ISpecializationRepository>();
+        _specializationService = new SpecializationService(specializationRepositoryMock.Object);
     }
     
     [Fact] 
@@ -18,18 +20,17 @@ public class SpecializationTests {
 
         Assert.True(res.IsFaulted);
         Assert.Equal("Specialization not found:(", res.Result.Result);
-        Assert.Equal(4, (int)res.Result.StatusCode);
+        Assert.Equal(0, (int)res.Result.StatusCode);
 
     }
     
     [Fact] 
-    public void GetSpecializationsOrNo_ShouldFail() {
+    public void GetSpecializationsOrNo_ShouldWork() {
 
         var res = _specializationService.GetSpecializations();
 
-        Assert.True(res.IsFaulted);
-        Assert.Equal("Specializations not found:(", res.Result.Result);
-        Assert.Equal(4, (int)res.Result.StatusCode);
+        Assert.True(res.IsCompleted);
+        Assert.Equal(200, (int)res.Result.StatusCode);
 
     }
     
@@ -40,23 +41,22 @@ public class SpecializationTests {
 
         Assert.True(res.IsFaulted);
         Assert.Equal("Specialization not found:(", res.Result.Result);
-        Assert.Equal(4, (int)res.Result.StatusCode);
+        Assert.Equal(0, (int)res.Result.StatusCode);
 
     }
     
     [Fact] 
-    public void DeleteSpecializationOrNo_ShouldFail() {
+    public void DeleteSpecializationOrNo_ShouldWork() {
 
         var res = _specializationService.DeleteSpecialization(0);
 
-        Assert.True(res.IsFaulted);
-        Assert.Equal("Specialization not found:(", res.Result.Result);
-        Assert.Equal(4, (int)res.Result.StatusCode);
+        Assert.True(res.IsCompleted);
+        Assert.Equal(200, (int)res.Result.StatusCode);
 
     }
     
     [Fact] 
-    public void CreateSpecializationOrNo_ShouldFail() {
+    public void CreateSpecializationOrNo_ShouldWork() {
 
         var specialization = new SpecializationViewModel {
             Id = 0,
@@ -65,14 +65,13 @@ public class SpecializationTests {
 
         var res = _specializationService.CreateSpecialization(specialization);
 
-        Assert.True(res.IsFaulted);
-        Assert.Equal("Specialization wasn't create:(", res.Result.Result);
-        Assert.Equal(5, (int)res.Result.StatusCode);
+        Assert.True(res.IsCompleted);
+        Assert.Equal(200, (int)res.Result.StatusCode);
 
     }
     
     [Fact] 
-    public void EditSpecializationOrNo_ShouldFail() {
+    public void EditSpecializationOrNo_ShouldWork() {
 
         var specialization = new SpecializationViewModel {
             Id = 0,
@@ -81,9 +80,8 @@ public class SpecializationTests {
 
         var res = _specializationService.Edit(0, specialization);
 
-        Assert.True(res.IsFaulted);
-        Assert.Equal("Specialization not found:(", res.Result.Result);
-        Assert.Equal(4, (int)res.Result.StatusCode);
+        Assert.True(res.IsCompleted);
+        Assert.Equal(200, (int)res.Result.StatusCode);
 
     }
     

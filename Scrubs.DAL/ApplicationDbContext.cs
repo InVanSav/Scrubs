@@ -2,7 +2,6 @@ namespace Scrubs.DAL;
 
 using Domain.Entity;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
 
 public class ApplicationDbContext : DbContext {
     
