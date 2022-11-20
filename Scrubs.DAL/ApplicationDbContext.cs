@@ -2,13 +2,10 @@ namespace Scrubs.DAL;
 
 using Domain.Entity;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
 
 public class ApplicationDbContext : DbContext {
     
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
-        Database.EnsureCreated();
-    }
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {}
     
     public DbSet<AppointmentDoctor>? AppointmentDoctors { get; set; }
     
