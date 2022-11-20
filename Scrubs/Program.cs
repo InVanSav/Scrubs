@@ -9,12 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection));
 
 =======
 >>>>>>> test
+=======
+>>>>>>> 39ff1b7c5b43a0cb341ddf583c5557d01046d640
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<ISpecializationRepository, SpecializationRepository>();
