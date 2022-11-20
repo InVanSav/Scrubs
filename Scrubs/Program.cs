@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Scrubs.DAL;
 using Scrubs.DAL.Interfaces;
 using Scrubs.DAL.Repositories;
 using Scrubs.Service.Implementations;
@@ -10,10 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+<<<<<<< HEAD
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection));
 
+=======
+>>>>>>> test
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<ISpecializationRepository, SpecializationRepository>();
