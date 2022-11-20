@@ -1,20 +1,31 @@
 namespace Scrubs.Tests.Doctor;
 
 using DAL.Interfaces;
+using Domain.Entity;
 using Domain.ViewModels.Doctor;
 using Service.Implementations;
 
 public class DoctorTests {
 
     private readonly DoctorService _doctorService;
+    private readonly Mock<IDoctorRepository> _doctorRepositoryMock;
 
     public DoctorTests() {
-        var doctorRepositoryMock = new Mock<IDoctorRepository>();
-        _doctorService = new DoctorService(doctorRepositoryMock.Object);
+        _doctorRepositoryMock = new Mock<IDoctorRepository>();
+        _doctorService = new DoctorService(_doctorRepositoryMock.Object);
     }
     
     [Fact] 
     public void GetDoctorOrNo_ShouldWork() {
+        
+        var doctor = new DoctorViewModel {
+            Id = 0,
+            FullName = "Stephan",
+            JobTitle = "Pediatrician"
+        };
+        
+        _doctorRepositoryMock.Setup(repository => repository.Get(0))
+            .Returns(() => doctor);
 
         var res = _doctorService.Get(0);
 
@@ -25,6 +36,15 @@ public class DoctorTests {
     
     [Fact] 
     public void GetDoctorsOrNo_ShouldWork() {
+        
+        var doctor = new DoctorViewModel {
+            Id = 0,
+            FullName = "Stephan",
+            JobTitle = "Pediatrician"
+        };
+        
+        _doctorRepositoryMock.Setup(repository => repository.Select())
+            .Returns(() => doctor);
 
         var res = _doctorService.GetDoctors();
 
@@ -35,6 +55,10 @@ public class DoctorTests {
 
     [Fact] 
     public void GetDoctorByFullNameOrNo_ShouldFail() {
+        
+        _doctorRepositoryMock.Setup(
+            repository => repository.GetDoctorByFullName(It.IsAny<string>()))
+            .Returns(() => null);
 
         var res = _doctorService.GetByFullName("Stephan");
 
@@ -46,6 +70,15 @@ public class DoctorTests {
     
     [Fact] 
     public void GetDoctorByJobTitleOrNo_ShouldWork() {
+        
+        var doctor = new DoctorViewModel {
+            Id = 0,
+            FullName = "Stephan",
+            JobTitle = "Pediatrician"
+        };
+        
+        _doctorRepositoryMock.Setup(repository => repository.GetDoctorByJobTitle("Pediatrician"))
+            .Returns(() => doctor);
 
         var res = _doctorService.GetByJobTitle("Pediatrician");
 
@@ -56,6 +89,15 @@ public class DoctorTests {
 
     [Fact] 
     public void DeleteDoctorOrNo_ShouldWork() {
+        
+        var doctor = new Doctor {
+            Id = 0,
+            FullName = "Stephan",
+            JobTitle = "Pediatrician"
+        };
+        
+        _doctorRepositoryMock.Setup(repository => repository.Delete(doctor))
+            .Returns(() => true);
 
         var res = _doctorService.DeleteDoctor(0);
 
@@ -67,11 +109,14 @@ public class DoctorTests {
     [Fact] 
     public void CreateDoctorOrNo_ShouldWork() {
 
-        var doctor = new DoctorViewModel {
+        var doctor = new Doctor {
             Id = 0,
             FullName = "Stephan",
             JobTitle = "Pediatrician"
         };
+        
+        _doctorRepositoryMock.Setup(repository => repository.Create(doctor))
+            .Returns(() => true);
 
         var res = _doctorService.CreateDoctor(doctor);
 
@@ -83,11 +128,14 @@ public class DoctorTests {
     [Fact] 
     public void EditDoctorOrNo_ShouldWork() {
 
-        var doctor = new DoctorViewModel {
+        var doctor = new Doctor {
             Id = 0,
             FullName = "Stephan",
             JobTitle = "Pediatrician"
         };
+        
+        _doctorRepositoryMock.Setup(repository => repository.Update(doctor))
+            .Returns(() => true);
 
         var res = _doctorService.Edit(0, doctor);
 

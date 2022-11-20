@@ -1,20 +1,25 @@
 namespace Scrubs.Tests.Specialization;
 
 using DAL.Interfaces;
+using Domain.Entity;
 using Domain.ViewModels.Specialization;
 using Service.Implementations;
 
 public class SpecializationTests {
 
     private readonly SpecializationService _specializationService;
+    private readonly Mock<ISpecializationRepository> _specializationRepositoryMock;
 
     public SpecializationTests() {
-        var specializationRepositoryMock = new Mock<ISpecializationRepository>();
-        _specializationService = new SpecializationService(specializationRepositoryMock.Object);
+        _specializationRepositoryMock = new Mock<ISpecializationRepository>();
+        _specializationService = new SpecializationService(_specializationRepositoryMock.Object);
     }
     
     [Fact] 
     public void GetSpecializationOrNo_ShouldFail() {
+        
+        _specializationRepositoryMock.Setup(repository => repository.Get(It.IsAny<int>()))
+            .Returns(() => null);
 
         var res = _specializationService.Get(0);
 
@@ -26,6 +31,14 @@ public class SpecializationTests {
     
     [Fact] 
     public void GetSpecializationsOrNo_ShouldWork() {
+        
+        var specialization = new SpecializationViewModel {
+            Id = 0,
+            Name = "Pediatrician"
+        };
+        
+        _specializationRepositoryMock.Setup(repository => repository.Select())
+            .Returns(() => specialization);
 
         var res = _specializationService.GetSpecializations();
 
@@ -36,6 +49,10 @@ public class SpecializationTests {
     
     [Fact] 
     public void GetSpecializationByNameOrNo_ShouldFail() {
+        
+        _specializationRepositoryMock.Setup(
+            repository => repository.GetSpecializationByName(It.IsAny<string>()))
+            .Returns(() => null);
 
         var res = _specializationService.GetByName("Pediatrician");
 
@@ -47,6 +64,14 @@ public class SpecializationTests {
     
     [Fact] 
     public void DeleteSpecializationOrNo_ShouldWork() {
+        
+        var specialization = new Specialization {
+            Id = 0,
+            Name = "Pediatrician"
+        };
+        
+        _specializationRepositoryMock.Setup(repository => repository.Delete(specialization))
+            .Returns(() => true);
 
         var res = _specializationService.DeleteSpecialization(0);
 
@@ -58,10 +83,13 @@ public class SpecializationTests {
     [Fact] 
     public void CreateSpecializationOrNo_ShouldWork() {
 
-        var specialization = new SpecializationViewModel {
+        var specialization = new Specialization {
             Id = 0,
             Name = "Pediatrician"
         };
+        
+        _specializationRepositoryMock.Setup(repository => repository.Create(specialization))
+            .Returns(() => true);
 
         var res = _specializationService.CreateSpecialization(specialization);
 
@@ -73,10 +101,13 @@ public class SpecializationTests {
     [Fact] 
     public void EditSpecializationOrNo_ShouldWork() {
 
-        var specialization = new SpecializationViewModel {
+        var specialization = new Specialization {
             Id = 0,
             Name = "Pediatrician"
         };
+        
+        _specializationRepositoryMock.Setup(repository => repository.Update(specialization))
+            .Returns(() => true);
 
         var res = _specializationService.Edit(0, specialization);
 
