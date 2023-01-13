@@ -2,7 +2,6 @@ namespace Scrubs.Service.Interfaces;
 
 using Domain.Entity;
 using Domain.Response;
-using Domain.ViewModels.Doctor;
 
 public interface IDoctorService {
     
@@ -16,8 +15,8 @@ public interface IDoctorService {
 
     Task<IBaseResponse<bool>> DeleteDoctor(int id);
 
-    Task<IBaseResponse<DoctorViewModel>> CreateDoctor(DoctorViewModel doctorViewModel);
+    Task<IBaseResponse<Doctor>> CreateDoctor(Doctor doctor);
 
-    Task<IBaseResponse<Doctor>> Edit(int id, DoctorViewModel doctorViewModel);
+    Task<IBaseResponse<Doctor>> Edit(int id, Doctor doctor);
 
 }

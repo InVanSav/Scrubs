@@ -13,9 +13,11 @@ public class BaseResponse<T> : IBaseResponse<T> {
 }
 
 public interface IBaseResponse<T> {
+
     T Data { get; set; }
 
     public string Result { get; set; }
 
-    public StatusCode StatusCode { get; set; } 
+    public StatusCode StatusCode { get; set; }
+
 }

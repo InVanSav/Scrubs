@@ -4,26 +4,25 @@ using DAL.Interfaces;
 using Domain.Entity;
 using Domain.Enum;
 using Domain.Response;
-using Domain.ViewModels.TimeTable;
 using Interfaces;
 
-public class TimeTableService : ITimeTableService{
-    
+public class TimeTableService : ITimeTableService {
+
     private readonly ITimeTableRepository _timeTableRepository;
 
     public TimeTableService(ITimeTableRepository timeTableRepository) {
         _timeTableRepository = timeTableRepository;
     }
-    
+
     public async Task<IBaseResponse<TimeTable>> GetTimeTable(int id) {
 
         var baseResponse = new BaseResponse<TimeTable>();
 
-        try{
+        try {
 
             var timeTable = await _timeTableRepository.Get(id);
 
-            if (timeTable == null){
+            if (timeTable == null) {
                 baseResponse.Result = "TimeTable not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -31,22 +30,22 @@ public class TimeTableService : ITimeTableService{
 
             baseResponse.Data = timeTable;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<TimeTable>() {
                 Result = $"[GetTimeTable] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
 
     public async Task<IBaseResponse<IEnumerable<TimeTable>>> GetTimeTables() {
-        
+
         var baseResponse = new BaseResponse<IEnumerable<TimeTable>>();
 
         try {
@@ -61,29 +60,29 @@ public class TimeTableService : ITimeTableService{
 
             baseResponse.Data = timeTables;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
-            
+
         } catch (Exception ex) {
-            
+
             return new BaseResponse<IEnumerable<TimeTable>>() {
                 Result = $"[GetTimeTables] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<TimeTable>> GetByStartOfWorkDayDoctor(DateTime start) {
 
         var baseResponse = new BaseResponse<TimeTable>();
 
-        try{
+        try {
 
             var timeTable = await _timeTableRepository.GetByStartOfWorkDayDoctor(start);
 
-            if (timeTable == null){
+            if (timeTable == null) {
                 baseResponse.Result = "TimeTable not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -91,29 +90,29 @@ public class TimeTableService : ITimeTableService{
 
             baseResponse.Data = timeTable;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<TimeTable>() {
                 Result = $"[GetByStartOfWorkDayDoctor] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<TimeTable>> GetByFinishOfWorkDayDoctor(DateTime finish) {
 
         var baseResponse = new BaseResponse<TimeTable>();
 
-        try{
+        try {
 
             var timeTable = await _timeTableRepository.GetByFinishOfWorkDayDoctor(finish);
 
-            if (timeTable == null){
+            if (timeTable == null) {
                 baseResponse.Result = "TimeTable not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -121,29 +120,29 @@ public class TimeTableService : ITimeTableService{
 
             baseResponse.Data = timeTable;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<TimeTable>() {
                 Result = $"[GetByFinishOfWorkDayDoctor] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<bool>> DeleteTimeTable(int id) {
-        
+
         var baseResponse = new BaseResponse<bool>();
 
-        try{
+        try {
 
             var timeTable = await _timeTableRepository.Get(id);
 
-            if (timeTable == null){
+            if (timeTable == null) {
                 baseResponse.Result = "TimeTable not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -154,83 +153,82 @@ public class TimeTableService : ITimeTableService{
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<bool>() {
                 Result = $"[DeleteTimaTable] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
-    public async Task<IBaseResponse<TimeTableViewModel>> CreateTimeTable(TimeTableViewModel timeTableViewModel) {
-        
-        var baseResponse = new BaseResponse<TimeTableViewModel>();
 
-        try{
+    public async Task<IBaseResponse<TimeTable>> CreateTimeTable(TimeTable timeTable) {
 
-            var timeTable = new TimeTable() {
-                IdOfDoctor = timeTableViewModel.IdOfDoctor,
-                FinishOfWorkDayDoctor = timeTableViewModel.FinishOfWorkDayDoctor,
-                StartOfWorkDayDoctor = timeTableViewModel.StartOfWorkDayDoctor,
+        var baseResponse = new BaseResponse<TimeTable>();
+
+        try {
+
+            var timeTablee = new TimeTable() {
+                IdOfDoctor = timeTable.IdOfDoctor,
+                FinishOfWorkDayDoctor = timeTable.FinishOfWorkDayDoctor,
+                StartOfWorkDayDoctor = timeTable.StartOfWorkDayDoctor,
             };
 
-            if (timeTable == null){
+            if (timeTablee == null) {
                 baseResponse.Result = "TimeTable wasn't create:(";
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
-            
-            await _timeTableRepository.Create(timeTable);
+
+            await _timeTableRepository.Create(timeTablee);
             baseResponse.StatusCode = StatusCode.OK;
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
-            return new BaseResponse<TimeTableViewModel>() {
+        } catch (Exception ex) {
+
+            return new BaseResponse<TimeTable>() {
                 Result = $"[CreateTimeTable] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
-    public async Task<IBaseResponse<TimeTable>> Edit(int id, TimeTableViewModel timeTableViewModel) {
-        
+
+    public async Task<IBaseResponse<TimeTable>> Edit(int id, TimeTable timeTable) {
+
         var baseResponse = new BaseResponse<TimeTable>();
 
-        try{
+        try {
 
-            var timeTable = _timeTableRepository.Get(id);
+            var timeTablee = _timeTableRepository.Get(id);
 
-            if (timeTable == null){
+            if (timeTablee == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "TimeTable not found:(";
                 return baseResponse;
             }
 
-            timeTable.Result.IdOfDoctor = timeTableViewModel.IdOfDoctor;
-            timeTable.Result.StartOfWorkDayDoctor = timeTableViewModel.StartOfWorkDayDoctor;
-            timeTable.Result.FinishOfWorkDayDoctor = timeTableViewModel.FinishOfWorkDayDoctor;
+            timeTablee.Result.IdOfDoctor = timeTable.IdOfDoctor;
+            timeTablee.Result.StartOfWorkDayDoctor = timeTable.StartOfWorkDayDoctor;
+            timeTablee.Result.FinishOfWorkDayDoctor = timeTable.FinishOfWorkDayDoctor;
 
-            await _timeTableRepository.Update(await timeTable);
+            await _timeTableRepository.Update(await timeTablee);
 
             return baseResponse;
 
-        }
-        catch (Exception ex) {
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<TimeTable>() {
                 Result = $"[Edit] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
 }

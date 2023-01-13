@@ -2,7 +2,6 @@ namespace Scrubs.Service.Interfaces;
 
 using Domain.Entity;
 using Domain.Response;
-using Domain.ViewModels.User;
 
 public interface IUserService {
 
@@ -22,8 +21,8 @@ public interface IUserService {
 
     Task<IBaseResponse<bool>> DeleteUser(int id);
 
-    Task<IBaseResponse<UserViewModel>> CreateUser(UserViewModel userViewModel);
+    Task<IBaseResponse<User>> CreateUser(User user);
 
-    Task<IBaseResponse<User>> Edit(int id, UserViewModel userViewModel);
+    Task<IBaseResponse<User>> Edit(int id, User user);
 
 }

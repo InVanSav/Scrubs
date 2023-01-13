@@ -4,26 +4,25 @@ using DAL.Interfaces;
 using Domain.Entity;
 using Domain.Enum;
 using Domain.Response;
-using Domain.ViewModels.Doctor;
 using Interfaces;
 
 public class DoctorService : IDoctorService {
-    
+
     private readonly IDoctorRepository _doctorRepository;
 
     public DoctorService(IDoctorRepository doctorRepository) {
         _doctorRepository = doctorRepository;
     }
-    
+
     public async Task<IBaseResponse<IEnumerable<Doctor>>> GetDoctors() {
-        
+
         var baseResponse = new BaseResponse<IEnumerable<Doctor>>();
 
-        try{
+        try {
 
             var doctors = await _doctorRepository.Select();
 
-            if (doctors.Count == 0){
+            if (doctors.Count == 0) {
                 baseResponse.Result = "Doctors not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -31,29 +30,29 @@ public class DoctorService : IDoctorService {
 
             baseResponse.Data = doctors;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
-            
+
         } catch (Exception ex) {
-            
+
             return new BaseResponse<IEnumerable<Doctor>>() {
                 Result = $"[GetDoctors] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
 
     }
-    
+
     public async Task<IBaseResponse<Doctor>> Get(int id) {
 
         var baseResponse = new BaseResponse<Doctor>();
 
-        try{
+        try {
 
             var doctor = await _doctorRepository.Get(id);
 
-            if (doctor == null){
+            if (doctor == null) {
                 baseResponse.Result = "Doctor not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -61,29 +60,29 @@ public class DoctorService : IDoctorService {
 
             baseResponse.Data = doctor;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Doctor>() {
                 Result = $"[Get] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
 
     public async Task<IBaseResponse<Doctor>> GetByFullName(string fullName) {
 
         var baseResponse = new BaseResponse<Doctor>();
 
-        try{
+        try {
 
             var doctor = await _doctorRepository.GetDoctorByFullName(fullName);
 
-            if (doctor == null){
+            if (doctor == null) {
                 baseResponse.Result = "Doctor not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -91,29 +90,29 @@ public class DoctorService : IDoctorService {
 
             baseResponse.Data = doctor;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Doctor>() {
                 Result = $"[GetByFullName] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
 
     public async Task<IBaseResponse<Doctor>> GetByJobTitle(string jobTitle) {
 
         var baseResponse = new BaseResponse<Doctor>();
 
-        try{
+        try {
 
             var doctor = await _doctorRepository.GetDoctorByJobTitle(jobTitle);
 
-            if (doctor == null){
+            if (doctor == null) {
                 baseResponse.Result = "Doctor not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -121,29 +120,29 @@ public class DoctorService : IDoctorService {
 
             baseResponse.Data = doctor;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Doctor>() {
                 Result = $"[GetByJobTitle] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
 
     public async Task<IBaseResponse<bool>> DeleteDoctor(int id) {
-        
+
         var baseResponse = new BaseResponse<bool>();
 
-        try{
+        try {
 
             var doctor = await _doctorRepository.Get(id);
 
-            if (doctor == null){
+            if (doctor == null) {
                 baseResponse.Result = "Doctor not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -154,82 +153,81 @@ public class DoctorService : IDoctorService {
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<bool>() {
                 Result = $"[DeleteDoctor] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
-    public async Task<IBaseResponse<DoctorViewModel>> CreateDoctor(DoctorViewModel doctorViewModel) {
-        
-        var baseResponse = new BaseResponse<DoctorViewModel>();
 
-        try{
+    public async Task<IBaseResponse<Doctor>> CreateDoctor(Doctor doctor) {
 
-            var doctor = new Doctor() {
-                JobTitle = doctorViewModel.JobTitle,
-                FullName = doctorViewModel.FullName,
+        var baseResponse = new BaseResponse<Doctor>();
+
+        try {
+
+            var doctore = new Doctor() {
+                JobTitle = doctor.JobTitle,
+                FullName = doctor.FullName,
             };
 
-            if (doctor == null){
+            if (doctore == null) {
                 baseResponse.Result = "Doctor wasn't create:(";
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
-            
-            await _doctorRepository.Create(doctor);
+
+            await _doctorRepository.Create(doctore);
             baseResponse.StatusCode = StatusCode.OK;
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
-            return new BaseResponse<DoctorViewModel>() {
+        } catch (Exception ex) {
+
+            return new BaseResponse<Doctor>() {
                 Result = $"[CreateDoctor] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
-    public async Task<IBaseResponse<Doctor>> Edit(int id, DoctorViewModel doctorViewModel) {
-        
+
+    public async Task<IBaseResponse<Doctor>> Edit(int id, Doctor doctor) {
+
         var baseResponse = new BaseResponse<Doctor>();
 
-        try{
+        try {
 
-            var doctor = _doctorRepository.Get(id);
+            var doctore = _doctorRepository.Get(id);
 
-            if (doctor == null){
+            if (doctor == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "Doctor not found:(";
                 return baseResponse;
             }
 
-            doctor.Result.Id = doctorViewModel.Id;
-            doctor.Result.JobTitle = doctorViewModel.JobTitle;
-            doctor.Result.FullName = doctorViewModel.FullName;
+            doctore.Result.Id = doctor.Id;
+            doctore.Result.JobTitle = doctor.JobTitle;
+            doctore.Result.FullName = doctor.FullName;
 
-            await _doctorRepository.Update(await doctor);
+            await _doctorRepository.Update(await doctore);
 
             return baseResponse;
 
-        }
-        catch (Exception ex) {
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Doctor>() {
                 Result = $"[Edit] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
 }

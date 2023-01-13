@@ -2,7 +2,6 @@ namespace Scrubs.Service.Interfaces;
 
 using Domain.Entity;
 using Domain.Response;
-using Domain.ViewModels.TimeTable;
 
 public interface ITimeTableService {
     
@@ -16,8 +15,8 @@ public interface ITimeTableService {
 
     Task<IBaseResponse<bool>> DeleteTimeTable(int id);
 
-    Task<IBaseResponse<TimeTableViewModel>> CreateTimeTable(TimeTableViewModel timeTableViewModel);
+    Task<IBaseResponse<TimeTable>> CreateTimeTable(TimeTable timeTable);
 
-    Task<IBaseResponse<TimeTable>> Edit(int id, TimeTableViewModel timeTableViewModel);
+    Task<IBaseResponse<TimeTable>> Edit(int id, TimeTable timeTable);
 
 }

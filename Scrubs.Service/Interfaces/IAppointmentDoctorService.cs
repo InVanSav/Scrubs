@@ -2,7 +2,6 @@ namespace Scrubs.Service.Interfaces;
 
 using Domain.Entity;
 using Domain.Response;
-using Domain.ViewModels.AppointmentDoctor;
 
 public interface IAppointmentDoctorService {
 
@@ -20,12 +19,12 @@ public interface IAppointmentDoctorService {
 
     Task<IBaseResponse<bool>> DeleteAppointment(int id);
 
-    Task<IBaseResponse<AppointmentDoctorViewModel>> CreateAppointment(
-        AppointmentDoctorViewModel appointmentDoctorViewModel
+    Task<IBaseResponse<AppointmentDoctor>> CreateAppointment(
+        AppointmentDoctor appointmentDoctor
     );
 
     Task<IBaseResponse<AppointmentDoctor>> Edit(
-        int id, AppointmentDoctorViewModel appointmentDoctor
+        int id, AppointmentDoctor appointmentDoctor
     );
 
 }
