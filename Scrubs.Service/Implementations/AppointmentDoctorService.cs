@@ -245,7 +245,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
                 FreeTimeOfDoctor = appointmentDoctor.FreeTimeOfDoctor,
             };
 
-            var find = _appointmentDoctorRepository.
+            var find = await _appointmentDoctorRepository.
                 GetByDateOfStartAppointmentWithDoctor(appointment.FreeTimeOfDoctor);
 
             if (appointment == null) {
@@ -253,7 +253,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
-            if (appointment.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
+            if (appointment.FreeTimeOfDoctor == find.FreeTimeOfDoctor) {
                 baseResponse.Result = "Appointment wasn't create:(";
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
@@ -283,7 +283,7 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
 
         try {
 
-            var appointment = _appointmentDoctorRepository.Get(id);
+            var appointment = await _appointmentDoctorRepository.Get(id);
 
             if (appointment == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
@@ -291,23 +291,23 @@ public class AppointmentDoctorService : IAppointmentDoctorService {
                 return baseResponse;
             }
 
-            appointment.Result.IdDoctor = appointmentDoctor.IdDoctor;
-            appointment.Result.IdPatient = appointmentDoctor.IdPatient;
-            appointment.Result.DateOfFinishAppointmentWithDoctor =
+            appointment.IdDoctor = appointmentDoctor.IdDoctor;
+            appointment.IdPatient = appointmentDoctor.IdPatient;
+            appointment.DateOfFinishAppointmentWithDoctor =
                 appointmentDoctor.DateOfFinishAppointmentWithDoctor;
-            appointment.Result.DateOfStartAppointmentWithDoctor =
+            appointment.DateOfStartAppointmentWithDoctor =
                 appointmentDoctor.DateOfStartAppointmentWithDoctor;
 
-            var find = _appointmentDoctorRepository.
-                GetByDateOfStartAppointmentWithDoctor(appointment.Result.FreeTimeOfDoctor);
+            var find = await _appointmentDoctorRepository.
+                GetByDateOfStartAppointmentWithDoctor(appointment.FreeTimeOfDoctor);
 
-            if (appointment.Result.FreeTimeOfDoctor == find.Result.FreeTimeOfDoctor) {
-                baseResponse.Result = "Appointment wasn't create:(";
+            if (appointment.FreeTimeOfDoctor == find.FreeTimeOfDoctor) {
+                baseResponse.Result = "Appointment wasn't edit:(";
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
 
-            await _appointmentDoctorRepository.Update(await appointment);
+            await _appointmentDoctorRepository.Update(appointment);
 
             return baseResponse;
 

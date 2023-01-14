@@ -204,7 +204,7 @@ public class TimeTableService : ITimeTableService {
 
         try {
 
-            var timeTablee = _timeTableRepository.Get(id);
+            var timeTablee = await _timeTableRepository.Get(id);
 
             if (timeTablee == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
@@ -212,11 +212,11 @@ public class TimeTableService : ITimeTableService {
                 return baseResponse;
             }
 
-            timeTablee.Result.IdOfDoctor = timeTable.IdOfDoctor;
-            timeTablee.Result.StartOfWorkDayDoctor = timeTable.StartOfWorkDayDoctor;
-            timeTablee.Result.FinishOfWorkDayDoctor = timeTable.FinishOfWorkDayDoctor;
+            timeTablee.IdOfDoctor = timeTable.IdOfDoctor;
+            timeTablee.StartOfWorkDayDoctor = timeTable.StartOfWorkDayDoctor;
+            timeTablee.FinishOfWorkDayDoctor = timeTable.FinishOfWorkDayDoctor;
 
-            await _timeTableRepository.Update(await timeTablee);
+            await _timeTableRepository.Update(timeTablee);
 
             return baseResponse;
 

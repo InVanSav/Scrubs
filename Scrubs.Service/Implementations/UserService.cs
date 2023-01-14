@@ -293,7 +293,7 @@ public class UserService : IUserService {
 
         try {
 
-            var usere = _userRepository.Get(id);
+            var usere = await _userRepository.Get(id);
 
             if (user == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
@@ -301,13 +301,13 @@ public class UserService : IUserService {
                 return baseResponse;
             }
 
-            usere.Result.Id = user.Id;
-            usere.Result.Password = user.Password;
-            usere.Result.FullName = user.FullName;
-            usere.Result.PhoneNumber = user.PhoneNumber;
-            usere.Result.Role = user.Role;
+            usere.Id = user.Id;
+            usere.Password = user.Password;
+            usere.FullName = user.FullName;
+            usere.PhoneNumber = user.PhoneNumber;
+            usere.Role = user.Role;
 
-            await _userRepository.Update(await usere);
+            await _userRepository.Update(usere);
 
             return baseResponse;
 

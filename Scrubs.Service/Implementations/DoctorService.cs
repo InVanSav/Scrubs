@@ -203,7 +203,7 @@ public class DoctorService : IDoctorService {
 
         try {
 
-            var doctore = _doctorRepository.Get(id);
+            var doctore = await _doctorRepository.Get(id);
 
             if (doctor == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
@@ -211,11 +211,11 @@ public class DoctorService : IDoctorService {
                 return baseResponse;
             }
 
-            doctore.Result.Id = doctor.Id;
-            doctore.Result.JobTitle = doctor.JobTitle;
-            doctore.Result.FullName = doctor.FullName;
+            doctore.Id = doctor.Id;
+            doctore.JobTitle = doctor.JobTitle;
+            doctore.FullName = doctor.FullName;
 
-            await _doctorRepository.Update(await doctore);
+            await _doctorRepository.Update(doctore);
 
             return baseResponse;
 

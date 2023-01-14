@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrubsAPI", "Scrubs\ScrubsAPI.csproj", "{3A0FFB15-B09A-4935-9A99-108B429340E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrubs", "Scrubs\Scrubs.csproj", "{3A0FFB15-B09A-4935-9A99-108B429340E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E5ED871B-7733-465A-BA1E-65D7B521B47E}"
 EndProject

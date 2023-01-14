@@ -176,7 +176,7 @@ public class SpecializationService : ISpecializationService {
 
         try {
 
-            var specializatione = _specializationRepository.Get(id);
+            var specializatione = await _specializationRepository.Get(id);
 
             if (specialization == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
@@ -184,10 +184,10 @@ public class SpecializationService : ISpecializationService {
                 return baseResponse;
             }
 
-            specializatione.Result.Id = specialization.Id;
-            specializatione.Result.Name = specialization.Name;
+            specializatione.Id = specialization.Id;
+            specializatione.Name = specialization.Name;
 
-            await _specializationRepository.Update(await specializatione);
+            await _specializationRepository.Update(specializatione);
 
             return baseResponse;
 

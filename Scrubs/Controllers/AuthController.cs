@@ -44,8 +44,8 @@ namespace Scrubs.API.Controllers {
 
             if (response.StatusCode == Domain.Enum.StatusCode.OK) {
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(response.Data));
+                //await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                //    new ClaimsPrincipal(response.Data));
 
                 return Ok("Авторизация прошла успешно");
 
