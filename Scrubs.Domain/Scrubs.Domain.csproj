@@ -10,4 +10,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="HashPasswordHelper\" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="HashPasswordHelper\" />
+    </ItemGroup>
 </Project>

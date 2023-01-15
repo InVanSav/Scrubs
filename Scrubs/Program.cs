@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Scrubs.DAL;
 using Scrubs.DAL.Interfaces;
 using Scrubs.DAL.Repositories;
 using Scrubs.Service.Implementations;
@@ -5,49 +8,45 @@ using Scrubs.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection));
 
-=======
->>>>>>> test
-=======
->>>>>>> 39ff1b7c5b43a0cb341ddf583c5557d01046d640
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
-builder.Services.AddScoped<ISpecializationRepository, SpecializationRepository>();
-builder.Services.AddScoped<ITimeTableRepository, TimeTableRepository>();
-builder.Services.AddScoped<IAppointmentDoctorRepository, AppointmentDoctorRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IDoctorRepository, DoctorRepository>();
+builder.Services.AddTransient<ISpecializationRepository, SpecializationRepository>();
+builder.Services.AddTransient<ITimeTableRepository, TimeTableRepository>();
+builder.Services.AddTransient<IAppointmentDoctorRepository, AppointmentDoctorRepository>();
 
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IDoctorService, DoctorService>();
-builder.Services.AddScoped<ITimeTableService, TimeTableService>();
-builder.Services.AddScoped<ISpecializationService, SpecializationService>();
-builder.Services.AddScoped<IAppointmentDoctorService, AppointmentDoctorService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IDoctorService, DoctorService>();
+builder.Services.AddTransient<ITimeTableService, TimeTableService>();
+builder.Services.AddTransient<ISpecializationService, SpecializationService>();
+builder.Services.AddTransient<IAppointmentDoctorService, AppointmentDoctorService>();
+builder.Services.AddTransient<IAuthService, AuthService>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c => {
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Scrubs", Version = "v1" });
+});
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment()) {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+if (app.Environment.IsDevelopment()) {
+    app.UseSwagger();
+    app.UseSwaggerUI(options => {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Scrubs v1");
+        options.RoutePrefix = string.Empty;
+    });
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
-app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllers();
 
 app.Run();

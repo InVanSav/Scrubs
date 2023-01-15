@@ -9,20 +9,11 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
-<<<<<<< HEAD
-<<<<<<< HEAD
       <PackageReference Include="Npgsql" Version="6.0.7" />
-=======
-=======
->>>>>>> 39ff1b7c5b43a0cb341ddf583c5557d01046d640
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-<<<<<<< HEAD
->>>>>>> test
-=======
->>>>>>> 39ff1b7c5b43a0cb341ddf583c5557d01046d640
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
     </ItemGroup>
 

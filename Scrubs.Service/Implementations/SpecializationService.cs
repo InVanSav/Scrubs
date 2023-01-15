@@ -4,7 +4,6 @@ using DAL.Interfaces;
 using Domain.Entity;
 using Domain.Enum;
 using Domain.Response;
-using Domain.ViewModels.Specialization;
 using Interfaces;
 
 public class SpecializationService : ISpecializationService {
@@ -14,16 +13,16 @@ public class SpecializationService : ISpecializationService {
     public SpecializationService(ISpecializationRepository specializationRepository) {
         _specializationRepository = specializationRepository;
     }
-    
+
     public async Task<IBaseResponse<IEnumerable<Specialization>>> GetSpecializations() {
-        
+
         var baseResponse = new BaseResponse<IEnumerable<Specialization>>();
 
-        try{
+        try {
 
             var specializations = await _specializationRepository.Select();
 
-            if (specializations.Count == 0){
+            if (specializations.Count == 0) {
                 baseResponse.Result = "Specializations not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -31,29 +30,29 @@ public class SpecializationService : ISpecializationService {
 
             baseResponse.Data = specializations;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
-            
+
         } catch (Exception ex) {
-            
+
             return new BaseResponse<IEnumerable<Specialization>>() {
                 Result = $"[GetSpecialization] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<Specialization>> GetByName(string name) {
 
         var baseResponse = new BaseResponse<Specialization>();
 
-        try{
+        try {
 
             var specialization = await _specializationRepository.GetSpecializationByName(name);
 
-            if (specialization == null){
+            if (specialization == null) {
                 baseResponse.Result = "Specialization not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -61,29 +60,29 @@ public class SpecializationService : ISpecializationService {
 
             baseResponse.Data = specialization;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Specialization>() {
                 Result = $"[GetByName] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<Specialization>> Get(int id) {
 
         var baseResponse = new BaseResponse<Specialization>();
 
-        try{
+        try {
 
             var specialization = await _specializationRepository.Get(id);
 
-            if (specialization == null){
+            if (specialization == null) {
                 baseResponse.Result = "Specialization not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -91,29 +90,29 @@ public class SpecializationService : ISpecializationService {
 
             baseResponse.Data = specialization;
             baseResponse.StatusCode = StatusCode.OK;
-            
+
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Specialization>() {
                 Result = $"[Get] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<bool>> DeleteSpecialization(int id) {
-        
+
         var baseResponse = new BaseResponse<bool>();
 
-        try{
+        try {
 
             var specialization = await _specializationRepository.Get(id);
 
-            if (specialization == null){
+            if (specialization == null) {
                 baseResponse.Result = "Specialization not found:(";
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 return baseResponse;
@@ -124,84 +123,83 @@ public class SpecializationService : ISpecializationService {
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<bool>() {
                 Result = $"[DeleteSpecialization] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
-    public async Task<IBaseResponse<SpecializationViewModel>> CreateSpecialization(
-        SpecializationViewModel specializationViewModel
+
+    public async Task<IBaseResponse<Specialization>> CreateSpecialization(
+        Specialization specialization
         ) {
-        
-        var baseResponse = new BaseResponse<SpecializationViewModel>();
 
-        try{
+        var baseResponse = new BaseResponse<Specialization>();
 
-            var specialization = new Specialization() {
-                Name = specializationViewModel.Name,
+        try {
+
+            var specializatione = new Specialization() {
+                Name = specialization.Name,
             };
 
-            if (specialization == null){
+            if (specializatione == null) {
                 baseResponse.Result = "Specialization wasn't create:(";
                 baseResponse.StatusCode = StatusCode.DataWasNotAdded;
                 return baseResponse;
             }
-            
+
             await _specializationRepository.Create(specialization);
             baseResponse.StatusCode = StatusCode.OK;
 
             return baseResponse;
 
-        } catch (Exception ex){
-            
-            return new BaseResponse<SpecializationViewModel>() {
+        } catch (Exception ex) {
+
+            return new BaseResponse<Specialization>() {
                 Result = $"[CreateSpecialization] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
     public async Task<IBaseResponse<Specialization>> Edit(
-        int id, SpecializationViewModel specializationViewModel
+        int id, Specialization specialization
         ) {
-        
+
         var baseResponse = new BaseResponse<Specialization>();
 
-        try{
+        try {
 
-            var specialization = _specializationRepository.Get(id);
+            var specializatione = await _specializationRepository.Get(id);
 
-            if (specialization == null){
+            if (specialization == null) {
                 baseResponse.StatusCode = StatusCode.DataNotFound;
                 baseResponse.Result = "Specialization not found:(";
                 return baseResponse;
             }
 
-            specialization.Result.Id = specializationViewModel.Id;
-            specialization.Result.Name = specializationViewModel.Name;
+            specializatione.Id = specialization.Id;
+            specializatione.Name = specialization.Name;
 
-            await _specializationRepository.Update(await specialization);
+            await _specializationRepository.Update(specializatione);
 
             return baseResponse;
 
-        }
-        catch (Exception ex) {
-            
+        } catch (Exception ex) {
+
             return new BaseResponse<Specialization>() {
                 Result = $"[Edit] : {ex.Message}",
                 StatusCode = StatusCode.InternalServerError,
             };
-            
+
         }
-        
+
     }
-    
+
 }
